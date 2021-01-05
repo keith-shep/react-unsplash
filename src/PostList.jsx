@@ -4,7 +4,7 @@ import Post from './Post'
 class PostList extends Component {
   render() {
     return(
-      <div className="post-list bg-gray">
+      <div className="post-list">
         <Post />
         <Post />
         <Post />
