@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { createApi } from 'unsplash-js';
 import './App.css';
 import PostList from './PostList'
-
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -12,20 +11,16 @@ const App = () => {
   let query = 'london'
   const url = `${baseUrlUnsplash}/search/photos?query=${query}&client_id=${accessKeyUnsplash}`
 
-  // console.log(url)
 
-  fetch(url, { headers : { 'Content-Type': 'application/json','Accept': 'application/json' } })
-    .then(response => response.json())
-    .then(data => setItems(data.results))
-
-
-
-
-
+  useEffect(() => {
+    fetch(url, { headers : { 'Content-Type': 'application/json','Accept': 'application/json' } })
+      .then(response => response.json())
+      .then(data => setItems(data.results))
+  }, [])
 
   return (
     <div className="container">
-      <PostList />
+      <PostList items={items}/>
     </div>
   );
 }

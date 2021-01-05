@@ -3,13 +3,11 @@ import Post from './Post'
 
 class PostList extends Component {
   render() {
+    const { items } = this.props;
+
     return(
       <div className="post-list">
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {items.map((item) => <Post item={item} key={item.id}/>)}
       </div>
     )
   }
