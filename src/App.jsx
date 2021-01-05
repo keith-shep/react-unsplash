@@ -1,10 +1,10 @@
-
 import './App.css';
+import PostList from './PostList'
 
 function App() {
   return (
-    <div className="Container">
-      Hello
+    <div className="container">
+      <PostList />
     </div>
   );
 }
