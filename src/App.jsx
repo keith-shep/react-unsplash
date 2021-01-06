@@ -12,7 +12,7 @@ const App = () => {
   const [dataLength, setDataLength] = useState(0);
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState('london');
-  const [page, setPage] = useState(50);
+  const [page, setPage] = useState(1);
 
   // Init first 10 posts
   useEffect(() => {
