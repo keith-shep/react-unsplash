@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-// import { createApi } from 'unsplash-js';
 import './App.css';
 import PostList from './PostList'
 import Navbar from './Navbar'
@@ -15,21 +14,7 @@ const App = () => {
   const [page, setPage] = useState(1);
 
   // Init first 10 posts
-  useEffect(() => {
-    setPage(page+1)
-    const url = `${baseUrlUnsplash}/search/photos?query=${query}&page=${page}&client_id=${accessKeyUnsplash}`
-
-    fetch(url, { headers :
-      { 'Content-Type': 'application/json',
-        'Accept': 'application/json' }
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('init data')
-        setItems(data.results)
-        setDataLength(data.results.length)
-      })
-  }, [])
+  useEffect(() => loadMoreData(), [])
 
   // Init more posts after the initial 10
   const loadMoreData = () => {
@@ -43,8 +28,8 @@ const App = () => {
       .then(response => response.json())
       .then(data => {
         console.log('loading next 10 posts...')
-        setDataLength(dataLength + data.results.length)
         setItems(items.concat(data.results))
+        setDataLength(dataLength + data.results.length)
       })
   }
 
