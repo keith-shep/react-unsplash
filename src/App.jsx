@@ -35,7 +35,6 @@ const App = () => {
   const loadMoreData = () => {
     setPage(page+1)
     const url = `${baseUrlUnsplash}/search/photos?query=${query}&page=${page}&client_id=${accessKeyUnsplash}`
-    console.log(url)
 
     fetch(url, { headers :
       { 'Content-Type': 'application/json',
@@ -52,7 +51,8 @@ const App = () => {
   return (
     <React.Fragment>
       <Navbar />
-        <div className="container w-25">
+        <div className="container col-md-6">
+          <h2 className="text-secondary">Pictures of "{query}"</h2>
           <InfiniteScroll
             dataLength={dataLength}
             next={loadMoreData}
