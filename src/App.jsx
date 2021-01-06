@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 // import { createApi } from 'unsplash-js';
 import './App.css';
 import PostList from './PostList'
+import Navbar from './Navbar'
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -19,8 +20,11 @@ const App = () => {
   }, [])
 
   return (
-    <div className="container">
-      <PostList items={items}/>
+    <div>
+      <Navbar />
+      <div className="container w-25">
+        <PostList items={items} />
+      </div>
     </div>
   );
 }

@@ -6,9 +6,12 @@ class Post extends Component {
   const { item } = this.props;
 
     return(
-      <div className="post card shadow-sm py-2 my-2 text-center">
-        <img src={item.urls.small} className="card-img-top" alt={item.alt_description} />
-        {item.description}
+      <div className="card text-white my-2 shadow">
+        <img src={item.urls.small} className="card-img" alt="..." />
+        <div className="card-img-overlay">
+          <h5 className="card-title">{item.user.username}</h5>
+          <p className="card-text">{item.alt_description}</p>
+        </div>
       </div>
     )
   }
