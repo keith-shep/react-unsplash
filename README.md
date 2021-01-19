@@ -1,8 +1,9 @@
-
-# Infinite Scroll Unsplash
+## Infinite Scroll Unsplash
 
 This [webapp](https://resplash-infinite.netlify.app/) searches for a query via unsplash's API and returns 10 related pictures. It also fetches more pictures via an infinite scroll.
 
+# [Live Demo](https://resplash-infinite.netlify.app/)
+Thanks to Netlify for the hosting.
 
 ## Built with
 
